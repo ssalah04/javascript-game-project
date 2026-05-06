@@ -1,0 +1,43 @@
+#gameArea {
+  width: 800px;
+  height: 500px;
+  background: black;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+#sprite {
+  width: 40px;
+  height: 40px;
+  background: yellow;
+  position: absolute;
+  left: 80px;
+  top: 200px;
+}
+
+#obstacle {
+    width: 60px;
+    height: 200px;
+    background-color: green;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+#obstacleTop,
+#obstacleBot {
+  position: absolute;
+  width: 40px;
+  background-color: green;
+  left: 800px;
+}
+
+#obstacleTop {
+  top: 0;
+  height: 120px;
+}
+
+#obstacleBot {
+  top: 270px;
+  height: 230px;
+}
