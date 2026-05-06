@@ -5,6 +5,9 @@
   background-size: cover;
   position: relative;
   overflow: hidden;
+background-image: url("");
+  background-size: cover;
+  background-position: center;
 }
 
 #sprite {
