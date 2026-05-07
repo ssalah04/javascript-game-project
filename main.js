@@ -14,7 +14,7 @@ const spriteHeight = 40; // sprite is 40px in height
 
 const gravity = 0.09; // pulls sprite down by 0.
 const jumpPower = -2.9; // negative up positive down
-const floorY = 460; // floor coordinate at 460.
+const floorY = 560; // floor coordinate at 560.
 
 const obstacleSpeed = 5; // 3px per frame speed
 const obstacleWidth = 40; //  40px 
