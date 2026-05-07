@@ -9,7 +9,6 @@ body {
 #gameArea {
   width: 400px;
   height: 600px;
-  background: black;
   background-size: cover;
   position: relative;
   overflow: hidden;
@@ -33,10 +32,9 @@ body {
   position: absolute;
   width: 60px;
   background-size: 100% 100%;
-  background-color: green;
   background-repeat: no-repeat;
   image-rendering: pixelated;
-  left: 800px;
+  left: 600px;
 }
 
 #obstacleTop {

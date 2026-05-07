@@ -4,9 +4,9 @@ const obstacleTop = document.querySelector("#obstacleTop");
 const obstacleBot = document.querySelector("#obstacleBot");
 
 let spriteY = 0;  //  Starting point of sprite. Close to the top.
-let obstacleX = 800; // Starting point right edge of the game area
+let obstacleX = 600; // Starting point right edge of the game area
 let velocityY = 1.3; // speed of sprite falling and jumping
-let gapY = 120;  // Starting postion of gap between vertical obstacles. odify this to make game easier or harder 
+let gapY = 120;  // Starting position of gap between vertical obstacles. Modify this to make game easier or harder 
 
 const spriteX = 100; // sprite is fixed on 100px on the X axis. 
 const spriteWidth = 40; // sprite is 40px in width
@@ -47,8 +47,8 @@ function updateObstacle() {//
   obstacleX -= obstacleSpeed;
 
   if (obstacleX < -obstacleWidth) {  // left side of obstacleX needs to at least -40(in our case) to fully leave the screen if so, restart from 800px
-    obstacleX = 800;
-    gapY = Math.floor(Math.random() * 350) + 80;  // Math.floor(Math.random()) randomises a coordinate in px  
+    obstacleX = 600;
+    gapY = Math.floor(Math.random() * 250) + 80;  // Math.floor(Math.random()) randomises a coordinate in px  
   }
 
   const topHeight = gapY; 
