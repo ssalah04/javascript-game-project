@@ -1,6 +1,14 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
 #gameArea {
-  width: 800px;
-  height: 500px;
+  width: 400px;
+  height: 600px;
   background: black;
   background-size: cover;
   position: relative;
