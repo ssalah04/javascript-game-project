@@ -43,19 +43,11 @@ body {
 #obstacleTop {
   top: 0;
   height: 120px;
-  background-image: url("assets/pipe_down.png");
+  background-image: url("assets/pipe_down.green.png");
 }
 
 #obstacleBot {
   top: 270px;
   height: 230px;
-  background-image: url("assets/pipe_up.png");
-}
-
-#startBtn {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 10px;
-  font-size: 20px;
-  cursor: pointer;
+  background-image: url("assets/pipe_up_green.png");
 }/*# sourceMappingURL=style.css.map */
