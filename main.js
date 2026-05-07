@@ -22,7 +22,7 @@ const gapSize = 150;
 
 let gameOver = false; // game starts 
 
-function updateSprite(){              
+function updateSprite(){             
   velocityY += gravity; // this simulates falling 
   spriteY += velocityY;  
 
