@@ -17,7 +17,7 @@ const jumpPower = -2.9; // negative up positive down
 const floorY = 560; // floor coordinate at 560.
 
 const obstacleSpeed = 5; // 3px per frame speed
-const obstacleWidth = 40; //  40px 
+const obstacleWidth = 60; //  40px 
 const gapSize = 150;
 
 let gameOver = false; // game starts 
