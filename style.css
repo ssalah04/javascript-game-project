@@ -17,6 +17,8 @@ background-image: url("");
   position: absolute;
   left: 80px;
   top: 200px;
+  background-image: url("");
+  background-position: 16px 0px;
 }
 
 #obstacle {
@@ -26,6 +28,7 @@ background-image: url("");
     position: absolute;
     right: 0;
     bottom: 0;
+
 }
 #obstacleTop,
 #obstacleBot {
