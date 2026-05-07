@@ -8,7 +8,7 @@ body {
 }
 #gameArea {
   width: 400px;
-  height: 600px;
+  height: 660px;
   background-size: cover;
   position: relative;
   overflow: hidden;
@@ -55,9 +55,9 @@ body {
 #ground{
     position: absolute;
     left: 0;
-    top: 560px;
+    top: 600px;
     width: 400px;
-    height: 40px;
+    height: 60px;
     background-image: url("assets/ground.png");
     background-size: cover;
     background-repeat: no-repeat;
