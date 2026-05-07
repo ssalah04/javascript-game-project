@@ -42,7 +42,7 @@ body {
 #obstacleTop {
   top: 0;
   height: 120px;
-  background-image: url("assets/pipe_down.green.png");
+  background-image: url("assets/pipe_down_green.png");
 }
 
 #obstacleBot {
