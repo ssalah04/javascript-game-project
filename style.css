@@ -28,6 +28,8 @@ background-image: url("");
     position: absolute;
     right: 0;
     bottom: 0;
+    background-image: url("world_tileset.png");
+    background-position: 16px 45px;
 
 }
 #obstacleTop,
@@ -36,6 +38,8 @@ background-image: url("");
   width: 40px;
   background-color: green;
   left: 800px;
+   background-image: url("world_tileset.png");
+background-position: 16px 15px;
 }
 
 #obstacleTop {
