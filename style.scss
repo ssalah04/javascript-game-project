@@ -29,35 +29,28 @@ background-image: url("assets/background_2.png");
   background-position: 16px 0px;
 }
 
-#obstacle {
-    width: 60px;
-    height: 200px;
-    background-color: green;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    background-image: url("world_tileset.png");
-    background-position: 16px 45px;
-
-}
 #obstacleTop,
 #obstacleBot {
   position: absolute;
-  width: 40px;
+  width: 60px;
+  background-size: 100% 100%;
   background-color: green;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
   left: 800px;
-   background-image: url("bottompipe.png");
-background-position: 16px 15px;
+
 }
 
 #obstacleTop {
   top: 0;
   height: 120px;
+  background-image: url("assets/pipe_up.png");
 }
 
 #obstacleBot {
   top: 270px;
   height: 230px;
+  background-image: url("assets/pipe_down.png");
 }
 
  #startBtn {
