@@ -22,11 +22,11 @@ const gapSize = 150;
 
 let gameOver = false; // game starts 
 
-function updateSprite(){      ///        
-  velocityY += gravity;
-  spriteY += velocityY;
+function updateSprite(){              
+  velocityY += gravity; // this simulates falling 
+  spriteY += velocityY;  
 
-  if (spriteY >= floorY) { // if the sprite bigger or = to floor coordinate. Stop velocity + game over.
+  if (spriteY >= floorY) { // If the sprite bigger or = to floor coordinate. Stop velocity + game over.
     spriteY = floorY;
     velocityY = 0;
     gameOver = true;
@@ -46,16 +46,16 @@ function jump(event) {
 function updateObstacle() {// 
   obstacleX -= obstacleSpeed;
 
-  if (obstacleX < -obstacleWidth) {  // left side of obstacleX needs to at least -40(in our case) to fully leave the screen if so, restart from 800px
-    obstacleX = 600;
-    gapY = Math.floor(Math.random() * 250) + 80;  // Math.floor(Math.random()) randomises a coordinate 0 to 1. + 80 is a buffer to stop it being too small 
+  if (obstacleX < -obstacleWidth) {  // left side of obstacleX needs to fully leave the screen if so, restart from 400px
+    obstacleX = 400;
+    gapY = Math.floor(Math.random() * 250) + 80;  // Math.floor(Math.random()) randomises a coordinate from 0 to 1. + 80 is a buffer of 80px to stop it being too small 
   }
 
   const topHeight = gapY; // 120 = 
   const bottomY = gapY + gapSize;  /// 120 + 150
   const bottomHeight = floorY - bottomY + spriteHeight;  
 
-  obstacleTop.style.left = obstacleX + "px";       
+  obstacleTop.style.left = obstacleX + "px";         /// this animates the obstacle movement
   obstacleTop.style.top = "0px";
   obstacleTop.style.width = obstacleWidth + "px";
   obstacleTop.style.height = topHeight + "px";
@@ -66,7 +66,7 @@ function updateObstacle() {//
   obstacleBot.style.height = bottomHeight + "px";
 }
 
-function isColliding(object1, object2) {       // reference 
+function isColliding(object1, object2) {       // logic inspo reference  
   return (
     object1.x < object2.x + object2.width &&    
     object1.x + object1.width > object2.x &&
@@ -90,7 +90,7 @@ function checkCollision() { // create o
     height: gapY
   };
 
-  const obstacleBotObj = {
+  const obstacleBotObj = {                       // 
     x: obstacleX,
     y: gapY + gapSize,
     width: obstacleWidth,
@@ -98,12 +98,12 @@ function checkCollision() { // create o
   };
 
   if (
-    isColliding(spriteObj, obstacleTopObj) ||
+    isColliding(spriteObj, obstacleTopObj) ||      // only one of these needs to be true for isColliding to be true
     isColliding(spriteObj, obstacleBotObj)
   ) {
     velocityY = 0;
     gameOver = true;
-    console.log("Game Over - hit obstacle");
+    console.log("Game Over");
   }
 }
 
@@ -114,7 +114,7 @@ function gameLoop() {
   updateObstacle();
   checkCollision();
 
-  requestAnimationFrame(gameLoop);
+  requestAnimationFrame(gameLoop); // 
 }
 
 window.addEventListener("keydown", jump);   //.window ia a global browser object is not necessary to prefix. Ref: https://developer.mozilla.org/en-US/docs/Web/API/Window/window
