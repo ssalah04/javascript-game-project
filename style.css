@@ -43,13 +43,13 @@ body {
 #obstacleTop {
   top: 0;
   height: 120px;
-  background-image: url("assets/pipe_up.png");
+  background-image: url("assets/pipe_down.png");
 }
 
 #obstacleBot {
   top: 270px;
   height: 230px;
-  background-image: url("assets/pipe_down.png");
+  background-image: url("assets/pipe_up.png");
 }
 
 #startBtn {
