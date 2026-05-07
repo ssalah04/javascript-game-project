@@ -8,7 +8,7 @@ body {
 
 #gameArea {
   width: 400px;
-  height: 600px;
+  height: 650px;
   background-size: cover;
   position: relative;
   overflow: hidden;
@@ -49,4 +49,16 @@ body {
   top: 270px;
   height: 230px;
   background-image: url("assets/pipe_up_green.png");
+}
+
+#ground {
+  position: absolute;
+  left: 0;
+  top: 600px;
+  width: 400px;
+  height: 50px;
+  background-image: url("assets/ground.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
 }/*# sourceMappingURL=style.css.map */

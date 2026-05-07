@@ -52,3 +52,14 @@ body {
   background-image: url("assets/pipe_up_green.png");
 }
 
+#ground{
+    position: absolute;
+    left: 0;
+    top: 560px;
+    width: 400px;
+    height: 40px;
+    background-image: url("assets/ground.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
