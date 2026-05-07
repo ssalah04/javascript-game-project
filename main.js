@@ -55,7 +55,7 @@ function updateObstacle() {//
   const bottomY = gapY + gapSize;  /// 120 + 150
   const bottomHeight = floorY - bottomY + spriteHeight;  
 
-  obstacleTop.style.left = obstacleX + "px";
+  obstacleTop.style.left = obstacleX + "px";       
   obstacleTop.style.top = "0px";
   obstacleTop.style.width = obstacleWidth + "px";
   obstacleTop.style.height = topHeight + "px";
@@ -66,7 +66,7 @@ function updateObstacle() {//
   obstacleBot.style.height = bottomHeight + "px";
 }
 
-function isColliding(object1, object2) {       
+function isColliding(object1, object2) {       // reference 
   return (
     object1.x < object2.x + object2.width &&    
     object1.x + object1.width > object2.x &&
@@ -75,7 +75,7 @@ function isColliding(object1, object2) {
   );
 }
 
-function checkCollision() {
+function checkCollision() { // create o
   const spriteObj = {
     x: spriteX,
     y: spriteY,
