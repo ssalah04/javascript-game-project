@@ -64,5 +64,26 @@ body {
     image-rendering: pixelated;
 }
  
+// adding responsiveness, 
 
-
+//extra feature: sprite movement on the x axis
+//Game Development Progress
+//Small bug with sprite collision detection
+//Spray hits ground but has slight overlap issue
+//Variable heights/widths changed somewhere, needs to be reverted
+//GitHub Pages refresh delay causing confusion during testing
+//Game mechanics working: sprite movement, obstacle collision detection
+//Current Game Features
+//Mario-style design using Canvas (self-taught)
+//Pipe obstacles with collision detection
+//Scoring system planned but not yet implemented
+//Points awarded for passing through pipes
+// Score display intended for center screen in white text
+// Game over conditions: sprite falls or touches pipe
+// Planned Improvements
+// Game over screen implementation
+// HTML structure already created but not activated
+// Alternative: restart from beginning on collision (like obstacle re-spawn)
+// Restart button functionality (HTML exists, JS pending)
+// Score display on screen
+// Font integration for better UI (previous attempt unsupported)

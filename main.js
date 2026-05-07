@@ -17,8 +17,8 @@ const jumpPower = -2.9; // negative up positive down
 const floorY = 560; // floor coordinate at 560.
 
 const obstacleSpeed = 5; // 3px per frame speed
-const obstacleWidth = 60; //  40px 
-const gapSize = 150;
+const obstacleWidth = 60; // 60px
+const gapSize = 150; // 
 
 let gameOver = false; // game starts 
 
@@ -46,13 +46,13 @@ function jump(event) {
 function updateObstacle() {// 
   obstacleX -= obstacleSpeed;
 
-  if (obstacleX < -obstacleWidth) {  // left side of obstacleX needs to fully leave the screen if so, restart from 600px even though our width is 400px bc it feels slower (personal preference). 
-    obstacleX = 600;
+  if (obstacleX < -obstacleWidth) {  // left side of obstacleX needs to fully leave the screen if so, restart from 660px even though our width is 400px bc it feels slower (personal preference). 
+    obstacleX = 660;
     gapY = Math.floor(Math.random() * 250) + 80;  // Math.floor(Math.random()) randomises a coordinate from 0 to 1. + 80 is a buffer of 80px to stop it being too small 
   }
 
-  const topHeight = gapY; // 120 = 
-  const bottomY = gapY + gapSize;  /// 120 + 150
+  const topHeight = gapY; // 
+  const bottomY = gapY + gapSize;  /// 
   const bottomHeight = floorY - bottomY + spriteHeight;  
 
   obstacleTop.style.left = obstacleX + "px";         /// this animates the obstacle movement
@@ -66,7 +66,7 @@ function updateObstacle() {//
   obstacleBot.style.height = bottomHeight + "px";
 }
 
-function isColliding(object1, object2) {       // logic inspo reference  
+function isColliding(object1, object2) {       // function returns a boolean. If collisions happens between 2 objects on 
   return (
     object1.x < object2.x + object2.width &&    
     object1.x + object1.width > object2.x &&
