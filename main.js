@@ -30,7 +30,7 @@ function updateSprite(){      ///
     spriteY = floorY;
     velocityY = 0;
     gameOver = true;
-    console.log("Game Over - hit floor");
+    console.log("Game Over");
   }
 
   sprite.style.left = spriteX + "px"; // This turns int into px in CSS. int + string = string
@@ -38,7 +38,7 @@ function updateSprite(){      ///
 }
 
 function jump(event) {
-  if (event.code === "Space" && !gameOver) { 
+  if (event.code === "Space" && !gameOver) {  // if space is pressed and gameOver is false, apply jumpPower to velocityY
     velocityY = jumpPower;
   }
 }
@@ -48,12 +48,12 @@ function updateObstacle() {//
 
   if (obstacleX < -obstacleWidth) {  // left side of obstacleX needs to at least -40(in our case) to fully leave the screen if so, restart from 800px
     obstacleX = 600;
-    gapY = Math.floor(Math.random() * 250) + 80;  // Math.floor(Math.random()) randomises a coordinate in px  
+    gapY = Math.floor(Math.random() * 250) + 80;  // Math.floor(Math.random()) randomises a coordinate 0 to 1. + 80 is a buffer to stop it being too small 
   }
 
-  const topHeight = gapY; 
-  const bottomY = gapY + gapSize;  /// 
-  const bottomHeight = floorY - bottomY + spriteHeight; // bottom of what?? 
+  const topHeight = gapY; // 120 = 
+  const bottomY = gapY + gapSize;  /// 120 + 150
+  const bottomHeight = floorY - bottomY + spriteHeight;  
 
   obstacleTop.style.left = obstacleX + "px";
   obstacleTop.style.top = "0px";
@@ -66,9 +66,9 @@ function updateObstacle() {//
   obstacleBot.style.height = bottomHeight + "px";
 }
 
-function isColliding(object1, object2) {        // logic understanding reference: https://www.youtube.com/watch?v=wJC1aEpx8Mc
+function isColliding(object1, object2) {       
   return (
-    object1.x < object2.x + object2.width &&    // 
+    object1.x < object2.x + object2.width &&    
     object1.x + object1.width > object2.x &&
     object1.y < object2.y + object2.height &&
     object1.y + object1.height > object2.y

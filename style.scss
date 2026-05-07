@@ -20,11 +20,13 @@ body {
 #sprite {
   width: 40px;
   height: 40px;
-  background: yellow;
   position: absolute;
   left: 80px;
   top: 200px;
-  background-image: url("asset/player.png");
+  background-image: url("assets/player.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
 }
 
 #obstacleTop,
