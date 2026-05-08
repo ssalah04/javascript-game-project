@@ -2,6 +2,7 @@ const gameArea = document.querySelector("#gameArea");
 const sprite = document.querySelector("#sprite");
 const obstacleTop = document.querySelector("#obstacleTop");
 const obstacleBot = document.querySelector("#obstacleBot");
+const scoreElement = document.querySelector("#score")
 
 let spriteY = 0;  //  Starting point of sprite. Close to the top.
 let obstacleX = 660; // Starting point right edge of the game area
@@ -20,7 +21,8 @@ const obstacleSpeed = 5; // 3px per frame speed
 const obstacleWidth = 60; // 60px
 const gapSize = 150; // 
 
-let gameOver = false; // game starts 
+let score = 0; 
+let gameOver = false; 
 
 function updateSprite(){             
   velocityY += gravity; // this simulates falling 
@@ -48,8 +50,15 @@ function updateObstacle() {//
 
   if (obstacleX < -obstacleWidth) {  // left side of obstacleX needs to fully leave the screen if so, restart from 660px even though our width is 400px bc it feels slower (personal preference). 
     obstacleX = 660;
-    gapY = Math.floor(Math.random() * 250) + 80;  // Math.floor(Math.random()) randomises a coordinate from 0 to 1. + 80 is a buffer of 80px to stop it being too small 
-  }
+    gapY = Math.floor(Math.random() * 250) + 80;
+
+    if (!gameOver) {
+      score++;
+      scoreElement.innerText = score;
+    }
+}
+
+  // Math.floor(Math.random()) randomises a coordinate from 0 to 1. + 80 is a buffer of 80px to stop it being too small  }
 
   const topHeight = gapY; // 
   const bottomY = gapY + gapSize;  /// 
@@ -66,7 +75,7 @@ function updateObstacle() {//
   obstacleBot.style.height = bottomHeight + "px";
 }
 
-function isColliding(object1, object2) {       // function returns a boolean. If collisions happens between 2 objects on 
+function isColliding(object1, object2) {       // function returns a boolean. If collisions happens between 2 objects on
   return (
     object1.x < object2.x + object2.width &&    
     object1.x + object1.width > object2.x &&
