@@ -20,6 +20,11 @@ body {
   background-image: url("assets/background_2.png");
   background-size: cover;
   background-position: center;
+
+  @media (max-width: 480px) {
+    width: 320px;
+    height: 480px;
+  }
 }
 
 #sprite {
@@ -78,6 +83,9 @@ body {
     font-family: 'BaiJamuree-Bold', sans-serif;
     color: white;
     z-index: 10;
+    @media (max-width: 480px) {
+    font-size: 30px; 
+  }
 }
  
 // adding responsiveness, 

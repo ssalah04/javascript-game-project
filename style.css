@@ -20,6 +20,12 @@ body {
   background-size: cover;
   background-position: center;
 }
+@media (max-width: 480px) {
+  #gameArea {
+    width: 320px;
+    height: 480px;
+  }
+}
 
 #sprite {
   width: 40px;
@@ -76,4 +82,9 @@ body {
   font-family: "BaiJamuree-Bold", sans-serif;
   color: white;
   z-index: 10;
+}
+@media (max-width: 480px) {
+  #score {
+    font-size: 30px;
+  }
 }/*# sourceMappingURL=style.css.map */
