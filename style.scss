@@ -21,7 +21,7 @@ body {
   background-size: cover;
   background-position: center;
 
-  @media (max-width: 480px) {
+  @media (max-width: 480px) { //game still works as intended but floor becomes invisible.
     width: 320px;
     height: 480px;
   }
