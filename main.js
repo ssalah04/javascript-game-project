@@ -77,14 +77,14 @@ function updateObstacle() {//
 
 function isColliding(object1, object2) {       // function returns a boolean. If collisions happens between 2 objects on
   return (
-    object1.x < object2.x + object2.width &&    ////https://www.youtube.com/watch?v=wJC1aEpx8Mc
+    object1.x < object2.x + object2.width &&    //// https://www.youtube.com/watch?v=wJC1aEpx8Mc
     object1.x + object1.width > object2.x &&
     object1.y < object2.y + object2.height &&
     object1.y + object1.height > object2.y
   );
 }
 
-function checkCollision() { // create o
+function checkCollision() { 
   const spriteObj = {
     x: spriteX,
     y: spriteY,
@@ -99,7 +99,7 @@ function checkCollision() { // create o
     height: gapY
   };
 
-  const obstacleBotObj = {                       // 
+  const obstacleBotObj = {                       
     x: obstacleX,
     y: gapY + gapSize,
     width: obstacleWidth,
@@ -116,6 +116,21 @@ function checkCollision() { // create o
   }
 }
 
+function restartGame() {
+  spriteY = 0;
+  velocityY = 1.3;
+
+  obstacleX = 660;
+  gapY = 120;
+
+  score = 0;
+  scoreElement.innerText = score;
+
+  gameOver = false;
+
+  gameLoop();
+}
+
 function gameLoop() {     
   if (gameOver) return;
 
@@ -128,4 +143,9 @@ function gameLoop() {
 
 window.addEventListener("keydown", jump);   //.window ia a global browser object is not necessary to prefix. Ref: https://developer.mozilla.org/en-US/docs/Web/API/Window/window
 
+window.addEventListener("dblclick", () => {
+  if (gameOver) {
+    restartGame();
+  }
+});
 gameLoop();
