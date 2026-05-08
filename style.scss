@@ -21,7 +21,7 @@ body {
   background-size: cover;
   background-position: center;
 
-  @media (max-width: 480px) { //game still works as intended but floor becomes invisible.
+  @media (max-width: 480px) { //game still works as intended but floor becomes invisible on smaller screens.
     width: 320px;
     height: 480px;
   }
@@ -80,7 +80,7 @@ body {
     text-align: center;
     top: 50px;
     font-size: 70px;
-    font-family: 'BaiJamuree-Bold', sans-serif;
+    font-family: 'BaiJamuree-Bold';
     color: white;
     z-index: 10;
 
@@ -88,9 +88,31 @@ body {
     font-size: 40px; 
   }
 }
- 
-// adding responsiveness, 
+#restart {
+  position: absolute;
+  inset: 0;// cover the canvas in all dimensions
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 22px;
+  font-family: 'BaiJamuree-Bold';
+  background: rgba(0,0,0,0.35);
+  opacity: 0;
+  z-index: 100;
 
+  @media (max-width:480px) {
+    font-size:18px;
+  }
+}
+
+#restart.show {
+  opacity: 1;
+}
+
+// Added: Responsiveness(media queries), scoring and restart feature.
+
+//FEEDBACK NOTES:
 //extra feature: sprite movement on the x axis
 //Game Development Progress
 //Small bug with sprite collision detection

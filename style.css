@@ -79,7 +79,7 @@ body {
   text-align: center;
   top: 50px;
   font-size: 70px;
-  font-family: "BaiJamuree-Bold", sans-serif;
+  font-family: "BaiJamuree-Bold";
   color: white;
   z-index: 10;
 }
@@ -87,4 +87,27 @@ body {
   #score {
     font-size: 40px;
   }
+}
+
+#restart {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 22px;
+  font-family: "BaiJamuree-Bold";
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  z-index: 100;
+}
+@media (max-width: 480px) {
+  #restart {
+    font-size: 18px;
+  }
+}
+
+#restart.show {
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */

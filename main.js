@@ -19,7 +19,7 @@ const floorY = 560; // floor coordinate at 560.
 
 const obstacleSpeed = 5; // 3px per frame speed
 const obstacleWidth = 60; // 60px
-const gapSize = 150; // 
+const gapSize = 150;  
 
 let score = 0; 
 let gameOver = false; 
@@ -32,6 +32,7 @@ function updateSprite(){
     spriteY = floorY;
     velocityY = 0;
     gameOver = true;
+    document.querySelector("#restart").classList.add("show");
     console.log("Game Over");
   }
 
@@ -64,7 +65,7 @@ function updateObstacle() {//
   const bottomY = gapY + gapSize;  /// 
   const bottomHeight = floorY - bottomY + spriteHeight;  
 
-  obstacleTop.style.left = obstacleX + "px";         /// this animates the obstacle movement
+  obstacleTop.style.left = obstacleX + "px";        
   obstacleTop.style.top = "0px";
   obstacleTop.style.width = obstacleWidth + "px";
   obstacleTop.style.height = topHeight + "px";
@@ -85,7 +86,7 @@ function isColliding(object1, object2) {       // function returns a boolean. If
 }
 
 function checkCollision() { 
-  const spriteObj = {
+  const spriteObj = { // define objects to be used in iscolliding() 
     x: spriteX,
     y: spriteY,
     width: spriteWidth,
@@ -112,6 +113,7 @@ function checkCollision() {
   ) {
     velocityY = 0;
     gameOver = true;
+    document.querySelector("#restart").classList.add("show");
     console.log("Game Over");
   }
 }
@@ -127,6 +129,7 @@ function restartGame() {
   scoreElement.innerText = score;
 
   gameOver = false;
+  document.querySelector("#restart").classList.remove("show");
 
   gameLoop();
 }
@@ -143,9 +146,10 @@ function gameLoop() {
 
 window.addEventListener("keydown", jump);   //.window ia a global browser object is not necessary to prefix. Ref: https://developer.mozilla.org/en-US/docs/Web/API/Window/window
 
-window.addEventListener("dblclick", () => {
+window.addEventListener("dblclick", () => {    // listen for double click. I if gameOver is true
   if (gameOver) {
     restartGame();
   }
 });
+
 gameLoop();
