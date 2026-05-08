@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'BaiJamuree-Bold';
+    src: url('assets/BaiJamjuree-Bold.ttf');
+}
+
 body {
     margin: 0;
     display: flex;
@@ -64,7 +69,16 @@ body {
     image-rendering: pixelated;
 }
 
-
+#score {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50px;
+    font-size: 70px;
+    font-family: 'BaiJamuree-Bold', sans-serif;
+    color: white;
+    z-index: 10;
+}
  
 // adding responsiveness, 
 
