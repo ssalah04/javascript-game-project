@@ -86,7 +86,7 @@ function isColliding(object1, object2) {       // function returns a boolean. If
 }
 
 function checkCollision() { 
-  const spriteObj = { // define objects to be used in iscolliding() 
+  const spriteObj = { // define objects to be used in isColliding() 
     x: spriteX,
     y: spriteY,
     width: spriteWidth,
@@ -153,3 +153,6 @@ window.addEventListener("dblclick", () => {    // listen for double click. I if 
 });
 
 gameLoop();
+
+
+//
