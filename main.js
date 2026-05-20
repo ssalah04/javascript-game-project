@@ -2,14 +2,14 @@ const gameArea = document.querySelector("#gameArea");
 const sprite = document.querySelector("#sprite");
 const obstacleTop = document.querySelector("#obstacleTop");
 const obstacleBot = document.querySelector("#obstacleBot");
-const scoreElement = document.querySelector("#score")
+const scoreElement = document.querySelector("#score");
 
-let spriteY = 0;  //  Starting point of sprite. Close to the top.
+let spriteY = 0; //  Starting point of sprite. Close to the top.
 let obstacleX = 660; // Starting point right edge of the game area
 let velocityY = 1.3; // speed of sprite falling and jumping
-let gapY = 120;  // Starting position of gap between vertical obstacles. Modify this to make game easier or harder 
+let gapY = 120; // Starting position of gap between vertical obstacles. Modify this to make game easier or harder
 
-const spriteX = 100; // sprite is fixed on 100px on the X axis. 
+const spriteX = 100; // sprite is fixed on 100px on the X axis.
 const spriteWidth = 40; // sprite is 40px in width
 const spriteHeight = 40; // sprite is 40px in height
 
@@ -19,53 +19,63 @@ const floorY = 560; // floor coordinate at 560.
 
 const obstacleSpeed = 5; // 3px per frame speed
 const obstacleWidth = 60; // 60px
-const gapSize = 150;  
+const gapSize = 150;
 
-let score = 0; 
-let gameOver = false; 
+let score = 0;
+let gameOver = false;
 
-function updateSprite(){             
-  velocityY += gravity; // this simulates falling 
-  spriteY += velocityY;  // adds velocity to sprite
-
-  if (spriteY >= floorY) { // If the sprite bigger or = to floor coordinate. Stop velocity + game over.
-    spriteY = floorY;
+function endGame() {
     velocityY = 0;
     gameOver = true;
-    document.querySelector("#restart").classList.add("show");
-    console.log("Game Over");
+    document.querySelector('#restart').classList.add('show');
+    console.log('Game Over');
+}
+
+
+function updateSprite() {
+  velocityY += gravity; // this simulates falling
+  spriteY += velocityY; // adds velocity to sprite
+
+  if (spriteY >= floorY) {
+    // If the sprite bigger or = to floor coordinate. Stop velocity + game over.
+    spriteY = floorY;
+    endGame();
   }
 
   sprite.style.left = spriteX + "px"; // int + string = string
-  sprite.style.top = spriteY + "px";  
+  sprite.style.top = spriteY + "px";
 }
 
 function jump(event) {
-  if (event.code === "Space" && !gameOver) {  // if space is pressed and gameOver is false, apply jumpPower to velocityY
+  if (event.code === "Space" && !gameOver) {
+    // if space is pressed and gameOver is false, apply jumpPower to velocityY
     velocityY = jumpPower;
   }
 }
 
-function updateObstacle() {// 
-  obstacleX -= obstacleSpeed; 
+function updateObstacle() {
+  //
+  obstacleX -= obstacleSpeed;
 
-  if (obstacleX < -obstacleWidth) {  // left side of obstacleX needs to fully leave the screen if so, restart from 660px even though our width is 400px bc it feels slower (personal preference). 
+  if (obstacleX < -obstacleWidth) {
+    // left side of obstacleX needs to fully leave the screen if so, restart from 660px even though our width is 400px bc it feels slower (personal preference).
     obstacleX = 660;
-    gapY = Math.floor(Math.random() * 250) + 80;
+    gapY = Math.floor(Math.random() * 250) + 100; // Math.floor(Math.random()) randomises a value from 0 to 1. + 80 is a buffer of 80px to stop it being too small  }
+
 
     if (!gameOver) {
       score++;
       scoreElement.innerText = score;
     }
-}
+  }
+};
 
-  // Math.floor(Math.random()) randomises a coordinate from 0 to 1. + 80 is a buffer of 80px to stop it being too small  }
+function layoutObstaclePipes() {
+  const topHeight = gapY; //where the gap starts
+  const bottomY = gapY + gapSize; /// calculates where the bottom obstacle should begin (eg. 120px + 150px)
+  const bottomHeight = floorY - bottomY + spriteHeight; // 
 
-  const topHeight = gapY; // 
-  const bottomY = gapY + gapSize;  /// 
-  const bottomHeight = floorY - bottomY + spriteHeight;  
-
-  obstacleTop.style.left = obstacleX + "px";        
+  obstacleTop.style.left = obstacleX + "px";
   obstacleTop.style.top = "0px";
   obstacleTop.style.width = obstacleWidth + "px";
   obstacleTop.style.height = topHeight + "px";
@@ -74,47 +84,45 @@ function updateObstacle() {//
   obstacleBot.style.top = bottomY + "px";
   obstacleBot.style.width = obstacleWidth + "px";
   obstacleBot.style.height = bottomHeight + "px";
-}
+};
 
-function isColliding(object1, object2) {       // function returns a boolean. If collisions happens between 2 objects on
+function isColliding(object1, object2) {
+  // function returns a boolean. If collisions happens between 2 objects on
   return (
-    object1.x < object2.x + object2.width &&    //// https://www.youtube.com/watch?v=wJC1aEpx8Mc
+    object1.x < object2.x + object2.width &&   //// inspiration: https://www.youtube.com/watch?v=wJC1aEpx8Mc
     object1.x + object1.width > object2.x &&
     object1.y < object2.y + object2.height &&
-    object1.y + object1.height > object2.y
+    object1.y + object1.height > object2.y 
   );
-}
+};
 
-function checkCollision() { 
-  const spriteObj = { // define objects to be used in isColliding() 
+function checkCollision() {
+  const spriteObj = {                                  // define objects to be used in isColliding()
     x: spriteX,
     y: spriteY,
     width: spriteWidth,
-    height: spriteHeight
+    height: spriteHeight,
   };
 
   const obstacleTopObj = {
     x: obstacleX,
     y: 0,
     width: obstacleWidth,
-    height: gapY
+    height: gapY,
   };
 
-  const obstacleBotObj = {                       
+  const obstacleBotObj = {
     x: obstacleX,
     y: gapY + gapSize,
     width: obstacleWidth,
-    height: floorY - (gapY + gapSize) + spriteHeight
+    height: floorY - (gapY + gapSize) + spriteHeight,
   };
 
   if (
-    isColliding(spriteObj, obstacleTopObj) ||      // only one of these needs to be true for isColliding to be true
+    isColliding(spriteObj, obstacleTopObj) || // only one of these needs to be true for isColliding to be true
     isColliding(spriteObj, obstacleBotObj)
   ) {
-    velocityY = 0;
-    gameOver = true;
-    document.querySelector("#restart").classList.add("show");
-    console.log("Game Over");
+    endGame();
   }
 }
 
@@ -134,25 +142,25 @@ function restartGame() {
   gameLoop();
 }
 
-function gameLoop() {     
+function gameLoop() {
   if (gameOver) return;
 
   updateSprite();
   updateObstacle();
   checkCollision();
-
-  requestAnimationFrame(gameLoop); // 
+  layoutObstaclePipes();
+  requestAnimationFrame(gameLoop); //
 }
 
-window.addEventListener("keydown", jump);   //.window ia a global browser object is not necessary to prefix. Ref: https://developer.mozilla.org/en-US/docs/Web/API/Window/window
+window.addEventListener("keydown", jump); //.window ia a global browser object is not necessary to prefix. Ref: https://developer.mozilla.org/en-US/docs/Web/API/Window/window
 
-window.addEventListener("dblclick", () => {    // listen for double click. I if gameOver is true
+window.addEventListener("dblclick", () => {
+  // listen for double click. I if gameOver is true
   if (gameOver) {
     restartGame();
   }
 });
 
 gameLoop();
-
 
 //

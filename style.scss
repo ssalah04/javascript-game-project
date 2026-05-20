@@ -1,15 +1,14 @@
 @font-face {
-    font-family: 'BaiJamuree-Bold';
-    src: url('assets/BaiJamjuree-Bold.ttf');
+  font-family: "BaiJamuree-Bold";
+  src: url("assets/BaiJamjuree-Bold.ttf");
 }
 
 body {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 #gameArea {
   width: 400px;
@@ -21,7 +20,8 @@ body {
   background-size: cover;
   background-position: center;
 
-  @media (max-width: 480px) { //game still works as intended but floor becomes invisible on smaller screens.
+  @media (max-width: 480px) {
+    //game still works as intended but floor becomes invisible on smaller screens.
     width: 320px;
     height: 480px;
   }
@@ -47,7 +47,6 @@ body {
   background-repeat: no-repeat;
   image-rendering: pixelated;
   left: 600px;
-
 }
 
 #obstacleTop {
@@ -62,47 +61,48 @@ body {
   background-image: url("assets/pipe_up_green.png");
 }
 
-#ground{
-    position: absolute;
-    left: 0;
-    top: 600px;
-    width: 400px;
-    height: 60px;
-    background-image: url("assets/ground.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    image-rendering: pixelated;
+#ground {
+  position: absolute;
+  left: 0;
+  top: 600px;
+  width: 400px;
+  height: 60px;
+  background-image: url("assets/ground.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
 }
 
 #score {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 50px;
-    font-size: 70px;
-    font-family: 'BaiJamuree-Bold';
-    color: white;
-    z-index: 10;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50px;
+  font-size: 70px;
+  font-family: "BaiJamuree-Bold";
+  color: white;
+  z-index: 10;
 
-    @media (max-width: 480px) {
-    font-size: 40px; 
+  @media (max-width: 480px) {
+    font-size: 40px;
   }
 }
 #restart {
   position: absolute;
-  inset: 0;// cover the canvas in all dimensions
+  inset: 0; // cover the canvas in all dimensions
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   font-size: 22px;
-  font-family: 'BaiJamuree-Bold';
-  background: rgba(0,0,0,0.35);
+  font-family: "BaiJamuree-Bold";
+  background: rgba(0, 0, 0, 0.35);
   opacity: 0;
   z-index: 100;
+  pointer-events: none;
 
-  @media (max-width:480px) {
-    font-size:18px;
+  @media (max-width: 480px) {
+    font-size: 18px;
   }
 }
 
